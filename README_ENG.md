@@ -1,5 +1,5 @@
 # Qt Windows Build & Sample Project
-[日本語](./README)  
+[日本語](./README.md)  
 This project provides a **template for building Qt from source on Windows** and creating a simple **Qt sample application**.  
 It uses Visual Studio and CMake for building and development.
 
