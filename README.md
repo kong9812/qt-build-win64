@@ -1,5 +1,5 @@
 # Qt Windows Build & Sample Project
-[English](./README_ENG)  
+[English](./README_ENG.md)  
 このプロジェクトは **Windows 上で Qt をソースからビルド**し、簡単な **Qt サンプルアプリ**を作成・起動するためのテンプレートです。  
 Visual Studio + CMake を使用しています。
 
