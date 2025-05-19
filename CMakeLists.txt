@@ -48,12 +48,13 @@ add_custom_command(TARGET ${APP_NAME} POST_BUILD
         $<TARGET_FILE_DIR:${APP_NAME}>
 )
 
-# Copy Qt platforms plugin directory (e.g. qwindows.dll)
+# Copy Qt platforms plugin directory
 add_custom_command(TARGET ${APP_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory
         $<TARGET_FILE_DIR:${APP_NAME}>/platforms
 
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${PROJECT_SOURCE_DIR}/qt/qtbase/plugins/platforms/qwindows.dll"
+        "${PROJECT_SOURCE_DIR}/qt/qtbase/plugins/platforms/qwindowsd.dll"
         $<TARGET_FILE_DIR:${APP_NAME}>/platforms
 )

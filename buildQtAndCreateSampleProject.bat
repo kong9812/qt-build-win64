@@ -1,5 +1,6 @@
-:: Copyright (c) 2025 kong9812
 @echo off
+chcp 65001
+:: Copyright (c) 2025 kong9812
 setlocal
 
 :: Define source and build directories
@@ -32,11 +33,11 @@ if not exist "%QT_BUILD_DIR%" (
 
     :: Run Qt's configure script with only qtbase module
     echo Configuring Qt
-    call "..\%QT_SRC_DIR%\configure.bat" -init-submodules -submodules qtbase
+    call "..\%QT_SRC_DIR%\configure.bat" -init-submodules -submodules qtbase -debug-and-release
 
     :: Build using CMake
     echo Building Qt...
-    cmake --build . --parallel
+    ninja qtbase
 
     popd
 )
