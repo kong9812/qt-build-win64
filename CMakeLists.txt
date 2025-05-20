@@ -54,7 +54,7 @@ add_custom_command(TARGET ${APP_NAME} POST_BUILD
         $<TARGET_FILE_DIR:${APP_NAME}>/platforms
 
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${PROJECT_SOURCE_DIR}/qt/qtbase/plugins/platforms/qwindows.dll"
-        "${PROJECT_SOURCE_DIR}/qt/qtbase/plugins/platforms/qwindowsd.dll"
+        $<$<CONFIG:Debug>:${PROJECT_SOURCE_DIR}/qt/qtbase/plugins/platforms/qwindowsd.dll>
+        $<$<CONFIG:Release>:${PROJECT_SOURCE_DIR}/qt/qtbase/plugins/platforms/qwindows.dll>
         $<TARGET_FILE_DIR:${APP_NAME}>/platforms
 )

@@ -29,7 +29,9 @@ if not exist "%QT_BUILD_DIR%" (
 
     :: Load Visual Studio environment for 64-bit builds
     echo Setting up Visual Studio environment
-    call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" amd64
+    for /f "delims=" %%i in ('vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath') do (
+        call "%%i\VC\Auxiliary\Build\vcvarsall.bat" amd64
+    )
 
     :: Run Qt's configure script with only qtbase module
     echo Configuring Qt
